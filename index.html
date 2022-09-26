@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./tester.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a website that converts multidmensional units, calculates base dimensions and provides definitions of quanities.">
+    <meta name="author" content="stefan lines">
+    <meta name="image" property="og:image" content="Share.jpg">
+    <title>Stefan Lines Multidimensional Unit Converter</title>
+</head>
+
+<body onload="calc1(); calc2(); calc3();">
+    <!-- <div class="toosmall">
+        <div class="title1">
+            <p4 style="margin-top: 22px;">
+                Sorry, your screen is too small. Try a tablet or computer! 
+            </p4>
+        </div>
+        <p3>
+            •	Perform completely flexible unit conversions for all prefixes, common units and possible power combinations.<br><br>
+            •	Prove or disprove dimensional homogeneity in an equation by using the base dimensions calculator.<br><br>
+            •	Learn the method of using conversion factors to manually convert multidimensional units.<br><br>
+            •	Learn the algebra of physical quantities.<br><br>
+            •	Learn what is meant by terms such as "quantity", "dimensions of a physical quantity" and "unit of measurement". <br><br>
+            •	Learn the definitions for all physical quantities and SI units. <br><br>
+        </p3>
+        <a href="https://youtu.be/VdTYnYsYMeM" target="_blank" class="Tutorial">
+            <p5>See this website in action</p5>
+        </a>
+        
+    </div> -->
+        <!-- <div class="title1">
+            <ul class="header">
+              <li>  <a href="https://www.linkedin.com/in/stefan-lines/" target="_blank" style="text-decoration:none" class="aboutme">
+                    <h3>About me</h3>
+                </a></li>
+                <li><a class="title">
+                    <h1>Multidimenstional Unit Converter</h1>
+                </a></li>
+                <li><a href="https://www.paypal.com/paypalme/stefanlines" target="_blank" style="text-decoration:none"class="paypal">
+                    <h3>Support me</h3>
+                </a></li>
+            </ul>  
+        </div> -->
+        <!-- <div class= "grid"> -->
+            <!-- <div class="tutorial">
+                
+                    <a href="https://youtu.be/VdTYnYsYMeM" target="_blank" class="Tutorial">
+                        <table>
+                            <tr>1 min</tr>
+                            <tr> tutorial</tr>
+                        </table>
+                    </a>
+                
+            </div> -->
+
+    <div class = "head">
+        <div class="box">
+            <h3>Input</h3>
+            <input type="number" name="inp-given" onchange="calc1()" onkeyup="calc1()" id="inp-given" placeholder="Value (enter here)">
+            <input type="text" name="given-unit" id="given-unit" readonly placeholder="Units (specify below)">
+        </div> 
+        <div class="box">
+            <h3>Output</h3>
+            <input type="text" name="out-req" id="out-req" placeholder="Value" readonly>
+            <th class="inp2";><input type="text" name="req-unit" id="req-unit" readonly placeholder="Units">
+        </div>
+    </div>    
+    <table>
+        <thead>
+            <tr>
+                <th> Quantity </th>
+                <th> Prefix </th>
+                <th> Unit </th>
+                <th> Power </th>
+                <th> Prefix </th>
+                <th> Unit </th>
+                
+            </tr>
+        </thead> 
+
+            <tr id="mass">
+                <td>Mass</td>
+                <td> <select name="m-prefix-1" onchange="calc1()" id="m-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select></td>
+                <td>
+                    <select name="mass-given" onchange="calc1()" id="mass-given">
+                        <option value="0.00000000000000000000000000166053892173">Da</option>
+                        <option value="0.0002">ct</option>
+                        <option value="0.001">g</option>
+                        <option value="0.0283495">oz</option>
+                        <option value="0.45359237">lb</option>
+                        <option value="1" selected>kg</option>
+                        <option value="6.35">st</option>
+                        <option value="14.593903">slug</option>
+                        <option value="1000">t</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onkeyup="calc1()" onchange="calc1()" name="mass-p" id="mass-p">
+                </td>
+                
+                <td>
+                    <select name="m-prefix-2" onchange="calc1()" id="m-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="mass-req" onchange="calc1()" id="mass-req">
+                        <option value="0.00000000000000000000000000166053892173">Da</option>
+                        <option value="0.0002">ct</option>
+                        <option value="0.001">g</option>
+                        <option value="0.0283495">oz</option>
+                        <option value="0.45359237">lb</option>
+                        <option value="1" selected>kg</option>
+                        <option value="6.35">st</option>
+                        <option value="14.593903">slug</option>
+                        <option value="1000">t</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+            <tr id="time">
+                <td>
+                    Time
+                </td>
+                
+                <td>
+                    <select name="t-prefix-1" onchange="calc1()" id="t-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>f
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="time-given" onchange="calc1()" id="time-given">
+                        <option value="1" selected>s</option>
+                        <option value="60">min</option>
+                        <option value="3600">h</option>
+                        <option value="86400">d</option>
+                        <option value="604800">wk</option>
+                        <option value="1209600">fn</option> 
+                        <option value="2592000">m</option> 
+                        <option value="31536000">yr</option>
+                        <option value="31622400">yr(L)</option>
+                        <option value="315360000">Dec</option>
+                        <option value="3153600000">c</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onchange="calc1()" onkeyup="calc1()" name="time-p" id="time-p">
+                </td>
+                
+                <td>
+                    <select name="t-prefix-2" onchange="calc1()" id="t-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="time-req" onchange="calc1()" id="time-req">
+                        <option value="1" selected>s</option>
+                        <option value="60">min</option>
+                        <option value="3600">h</option>
+                        <option value="86400">d</option>
+                        <option value="604800">wk</option> 
+                        <option value="1209600">fn</option>
+                        <option value="2592000">m</option> 
+                        <option value="31536000">yr</option>
+                        <option value="31622400">yr(L)</option>
+                        <option value="315360000">Dec</option>
+                        <option value="3153600000">c</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+            <tr id="length">
+                <td>Length</td>
+                
+                <td>
+                    <select name="l-prefix-1" onchange="calc1()" id="l-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="length-given" onchange="calc1()" id="length-given">
+                        <option value="0.0000000001">Å</option>
+                        <option value="0.0254">in</option>
+                        <option value="0.305">ft</option>
+                        <option value="0.914">yd</option>
+                        <option value="1" selected>m</option>
+                        <option value="1000">km</option>
+                        <option value="1610">mi</option>
+                        <option value="1852">nmi</option>
+                        <option value="9460000000000000">ly</option>
+                        <option value="30900000000000000">pc</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onchange="calc1()" onkeyup="calc1()" name="length-p" id="length-p">
+                </td>
+                
+                <td>
+                    <select name="l-prefix-2" onchange="calc1()" id="l-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="length-req" onchange="calc1()" id="length-req">
+                        <option value="0.0000000001">Å</option>
+                        <option value="0.0254">in</option>
+                        <option value="0.305">ft</option>
+                        <option value="0.914">yd</option>
+                        <option value="1" selected>m</option>
+                        <option value="1000">km</option>
+                        <option value="1610">mi</option>
+                        <option value="1852">nmi</option>
+                        <option value="9460000000000000">ly</option>
+                        <option value="30900000000000000">pc</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+            <tr id="Temperature">
+                <td>Temperature</td>
+                
+                <td>
+                    <select name="tp-prefix-1" onchange="calc1()" id="tp-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="temperature-given" onchange="calc1()" id="temperature-given">
+                        <option value="0.5555556">°R</option>
+                        <option value="1" selected>K</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="temperature-p" onchange="calc1()" onkeyup="calc1()"
+                        id="temperature-p">
+                </td>
+                
+                <td>
+                    <select name="tp-prefix-2" onchange="calc1()" id="tp-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="temperature-req" onchange="calc1()" id="temperature-req">
+                        <option value="0.5555556">°R</option>
+                        <option value="1" selected>K</option>
+                    </select>
+                </td>
+               
+            </tr>
+
+
+
+
+            <tr id="Energy">
+                <td>Energy</td>
+                
+                <td>
+                    <select name="e-prefix-1" onchange="calc1()" id="e-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="energy-given" onchange="calc1()" id="energy-given">
+                        <option value="0.000000000000000000160217653">eV</option>
+                        <option value="1" selected>J</option>
+                        <option value="4.1868">cal</option>
+                        <option value="1055.0558526">BTU</option>
+                        <option value="2684520">hp h</option>   
+                        <option value="3600000">kW h</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onkeyup="calc1()" onchange="calc1()" name="energy-p" id="energy-p">
+                </td>
+                
+                <td>
+                    <select name="e-prefix-2" onchange="calc1()" id="e-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="energy-req" onchange="calc1()" id="energy-req">
+                        <option value="0.000000000000000000160217653">eV</option>
+                        <option value="1" selected>J</option>
+                        <option value="4.1868">cal</option>
+                        <option value="1055.0558526">BTU</option>
+                        <option value="2684520">hp h</option>   
+                        <option value="3600000">kW h</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+
+            <tr id="Power">
+                <td>Power</td>
+                
+                <td>
+                    <select name="p-prefix-1" onchange="calc1()" id="p-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Power-given" onchange="calc1()" id="Power-given">
+                        <option value="1" selected>W</option>
+                        <option value="745.69987158227">hp</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onchange="calc1()" onkeyup="calc1()" name="Power-p" id="Power-p">
+                </td>
+                
+                <td>
+                    <select name="p-prefix-2" id="p-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Power-req" id="Power-req" onchange="calc1()">
+                        <option value="1" selected>W</option>
+                        <option value="745.69987158227">hp</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+
+            <tr id="Force">
+                <td>Force</td>
+                
+                <td>
+                    <select name="f-prefix-1" id="f-prefix-1" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Force-given" id="Force-given" onchange="calc1()">
+                        <option value="0.00001" selected>dyne</option>
+                        <option value="0.00980665000000027" selected>gf</option>
+                        <option value="0.138254999999999" selected>pdl</option>
+                        <option value="1" selected>N</option>
+                        <option value="4.4482216152605">lbf</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Force-p" id="Force-p" onchange="calc1()" onkeyup="calc1()">
+                </td>
+                
+                <td>
+                    <select name="f-prefix-2" id="f-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Force-req" id="Force-req" onchange="calc1()">
+                        <option value="0.00001" selected>dyne</option>
+                        <option value="0.00980665000000027" selected>gf</option>
+                        <option value="0.138254999999999" selected>pdl</option>
+                        <option value="1" selected>N</option>
+                        <option value="4.4482216152605">lbf</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            
+
+            <tr id="Pressure">
+                <td>Pressure</td>
+                
+                <td>
+                    <select name="pr-prefix-1" onchange="calc1()" id="pr-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Pressure-given" onchange="calc1()" id="Pressure-given">
+                        <option value="1" selected>pa</option>
+                        <option value="9.80638">mmH₂O</option>
+                        <option value="133.3224">mmHg</option>
+                        <option value="133.3224">torr</option>
+                        <option value="6894.757">psi</option>
+                        <option value="100000">Bar</option>
+                        <option value="101325">atm</option>
+                        <option value="6894757">ksi</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onchange="calc1()" onkeyup="calc()" name="Pressure-p" id="Pressure-p">
+                </td>
+                
+                <td>
+                    <select name="pr-prefix-2" id="pr-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Pressure-req" id="Pressure-req" onchange="calc1()">
+                        <option value="1" selected>pa</option>
+                        <option value="9.80638">mmH₂O</option>
+                        <option value="133.3224">mmHg</option>
+                        <option value="133.3224">torr</option>
+                        <option value="6894.757">psi</option>
+                        <option value="100000">Bar</option>
+                        <option value="101325">atm</option>
+                        <option value="6894757">ksi</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+            <tr id="Torque">
+                <td>Torque Moment</td>
+                
+                <td>
+                    <select name="to-prefix-1" onchange="calc1()" id="to-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Torque-given" onchange="calc1()" id="Torque-given">
+                        <option value="0.112984829027616">lbf in</option>
+                        <option value="1" selected>Nm</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" onchange="calc1()" onkeyup="calc1()" name="Torque-p" id="Torque-p">
+                </td>
+                
+                <td>
+                    <select name="to-prefix-2" onchange="calc1()" id="to-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Torque-req" onchange="calc1()" id="Torque-req">
+                        <option value="0.112984829027616">lbf in</option>
+                        <option value="1" selected>Nm</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+
+            <tr id="Area">
+                <td>Area</td>
+                
+                <td>
+                    <select name="a-prefix-1" id="a-prefix-1" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Area-given" id="Area-given" onchange="calc1()">
+                        <option value=" 0.0000000000000000000000000001">barn</option>
+                        <option value="0.00064516">square inch</option>
+                        <option value="0.092903">square foot</option>
+                        <option value="0.836127">square yard</option>
+                        <option value="1" selected><span> square metre</option>
+                        <option value="4046.86">acre</option>
+                        <option value="10000">hectare</option>
+                        <option value="2590000">square mile</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Area-p" id="Area-p" onchange="calc1()" onkeyup="calc1()">
+                </td>
+                
+                <td>
+                    <select name="a-prefix-2" id="a-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Area-req" id="Area-req" onchange="calc1()">
+                        <option value=" 0.0000000000000000000000000001">barn</option>
+                        <option value="0.00064516">square inch</option>
+                        <option value="0.092903">square foot</option>
+                        <option value="0.836127">square yard</option>
+                        <option value="1" selected><span>square metre</option>
+                        <option value="4046.86">acre</option>
+                        <option value="10000">hectare</option>
+                        <option value="2590000">square mile</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Volume">
+                <td>Volume</td>
+                
+                <td>
+                    <select name="v-prefix-1" id="v-prefix-1" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Volume-given" id="Volume-given" onchange="calc1()">
+                        <option value="0.00000492892159375">teaspoon</option>
+                        <option value="0.00001478676478125">tablespoon</option>
+                        <option value="0.0000163871">cubic inch</option>
+                        <option value="0.00023658823637296">cup</option>
+                        <option value="0.000473176">pint</option>
+                        <option value="0.001">liter</option>
+                        <option value="0.00378541">gallon</option>
+                        <option value="0.0283168">cubic Foot</option>
+                        <option value="0.163659">barrel</option>
+                        <option value="1" selected><span>cubic metre</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Volume-p" id="Volume-p" onkeyup="calc1()" onchange="calc1()">
+                </td>
+                
+                <td>
+                    <select name="v-prefix-2" id="v-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Volume-req" onchange="calc1()" id="Volume-req">
+                        <option value="0.00000492892159375">teaspoon</option>
+                        <option value="0.00001478676478125">tablespoon</option>
+                        <option value="0.0000163871">cubic inch</option>
+                        <option value="0.00023658823637296">cup</option>
+                        <option value="0.000473176">pint</option>
+                        <option value="0.001">liter</option>
+                        <option value="0.00378541">gallon</option>
+                        <option value="0.0283168">cubic Foot</option>
+                        <option value="0.163659">barrel</option>
+                        <option value="1" selected><span>cubic metre</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Velocity">
+                <td>Velocity</td>
+                
+                <td>
+                    <select name="ve-prefix-1" onchange="calc1()" id="ve-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Velocity-given" id="Velocity-given" onchange="calc1()">
+                        <option value="0.00508">ft min&#8315;&#185;</option>
+                        <option value="0.277778">kph</option>
+                        <option value="0.3048">ft s&#8315;&#185;</option>
+                        <option value="0.44704">mph</option>
+                        <option value="0.514444">kn</option>
+                        <option value="1" selected>m s&#8315;&#185;</option>
+                        <option value="343">cₛ</option>
+                        <option value="299792458">c</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Velocity-p" id="Velocity-p" onchange="calc1()" onkeyup="calc1()">
+                </td>
+                
+                <td>
+                    <select name="ve-prefix-2" id="ve-prefix-2" onchange="calc1()">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Velocity-req" id="Velocity-req" onchange="calc1()">
+                        <option value="0.00508">ft min&#8315;&#185;</option>
+                        <option value="0.277778">kph</option>
+                        <option value="0.3048">ft s&#8315;&#185;</option>
+                        <option value="0.44704">mph</option>
+                        <option value="0.514444">kn</option>
+                        <option value="1" selected>m s&#8315;&#185;</option>
+                        <option value="343">cₛ</option>
+                        <option value="299792458">c</option>
+                    </select>
+                </td>
+                
+            </tr>
+            <tr id="Acceleration">
+                <td >Acceleration</td>
+                
+                <td>
+                    <select name="ac-prefix-1" onchange="calc1()" id="ac-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Acceleration-given" onchange="calc1()" id="Acceleration-given">
+                        <option value="0.01">gal</option>
+                        <option value="0.0254">in s&#8315;&#178;</option>
+                        <option value="0.3048">ft s&#8315;&#178;</option>
+                        <option value="1" selected><span>m s&#8315;&#178;</option>
+                        <option value="9.80665">g</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Acceleration-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Acceleration-p">
+                </td>
+                
+                <td>
+                    <select name="ac-prefix-2" onchange="calc1()" id="ac-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Acceleration-req" onchange="calc1()" id="Acceleration-req">
+                        <option value="0.01">gal</option>
+                        <option value="0.0254">in s&#8315;&#178;</option>
+                        <option value="0.3048">ft s&#8315;&#178;</option>
+                        <option value="1" selected><span>m s&#8315;&#178;</option>
+                        <option value="9.80665">g</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Dynamic">
+                <td>Dynamic Viscocity</td>
+                
+                <td>
+                    <select name="DV-prefix-1" onchange="calc1()" id="DV-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Dynamic-given" onchange="calc1()" id="Dynamic-given">
+                        <option value="0.000277777777777778">kg m&#8315;&#185; h&#8315;&#185; </option>
+                        <option value="0.000413378870000007">pdl h ft&#8315;&#178;</option>
+                        <option value="0.000413378870000007">lb ft&#8315;&#185; h&#8315;&#185;</option>
+                        <option value="0.1">g cm&#8315;&#185; s&#8315;&#185;</option>
+                        <option value="0.1">dyn s cm&#8315;&#178;</option>
+                        <option value="1" selected>kg m&#8315;&#185;	 s&#8315;&#185;</option>
+                        <option value="1">N s m&#8315;&#178;</option>
+                        <option value="1">PaS</option>
+                        <option value="1">P</option>
+                        <option value="1.48816390000001">pdl s ft&#8315;&#178;</option>
+                        <option value="47.8802589999991">lbf s ft&#8315;&#178;</option>
+                        <option value="98.0665000000008">gf s cm&#8315;&#178;</option>
+                        <option value="6894.75728999994">reyn</option>
+                        <option value="6894.75728999994">lbf s in&#8315;&#178;</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Dynamic-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Dynamic-p">
+                </td>
+                
+                <td>
+                    <select name="DV-prefix-2" onchange="calc1()" id="DV-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Dynamic-req" onchange="calc1()" id="Dynamic-req">
+                        <option value="0.000277777777777778">kg m&#8315;&#185; h&#8315;&#185; </option>
+                        <option value="0.000413378870000007">pdl h ft&#8315;&#178;</option>
+                        <option value="0.000413378870000007">lb ft&#8315;&#185; h&#8315;&#185;</option>
+                        <option value="0.1">g cm&#8315;&#185; s&#8315;&#185;</option>
+                        <option value="0.1">dyn s cm&#8315;&#178;</option>
+                        <option value="1" selected>kg m&#8315;&#185;	 s&#8315;&#185;</option>
+                        <option value="1">N s m&#8315;&#178;</option>
+                        <option value="1">PaS</option>
+                        <option value="1">P</option>
+                        <option value="1.48816390000001">pdl s ft&#8315;&#178;</option>
+                        <option value="47.8802589999991">lbf s ft&#8315;&#178;</option>
+                        <option value="98.0665000000008">gf s cm&#8315;&#178;</option>
+                        <option value="6894.75728999994">reyn</option>
+                        <option value="6894.75728999994">lbf s in&#8315;&#178;</option>
+                    </select>
+                </td>
+                
+            </tr>
+            
+            <tr id="Kinematic">
+                <td>Kinematic Viscocity</td>
+                
+                <td>
+                    <select name="KV-prefix-1" onchange="calc1()" id="KV-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Kinematic-given" onchange="calc1()" id="Kinematic-given">
+                        <option value="0.00000002777777777777780">cm&#178; h&#8315;&#185;</option>
+                        <option value="0.00000017921146953405">in&#178; h&#8315;&#185;</option>
+                        <option value="0.00000166666666666667">cm&#178; min&#8315;&#185;</option>
+                        <option value="0.000010752688172043"><span>in&#178; min&#8315;&#185;</option>
+                        <option value="0.0000257731958762887">ft&#178; h&#8315;&#185;</option>
+                        <option value="0.0001">St</option>
+                        <option value="0.0001">cm&#178; s&#8315;&#185;</option>
+                        <option value="0.000277777777777778">m&#178; h&#8315;&#185;</option>
+                        <option value="0.000645161290322581">in&#178; s&#8315;&#185;</option>
+                        <option value="0.00154798761609907"><span>ft&#178; min&#8315;&#185;</option>
+                        <option value="0.0166666666666667">m&#178; min&#8315;&#185;</option>
+                        <option value="0.0925925925925926">ft&#178; s&#8315;&#185;</option>
+                        <option value="1" selected>m&#178; s&#8315;&#185;</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Kinematic-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Kinematic-p">
+                </td>
+                
+                <td>
+                    <select name="KV-prefix-2" onchange="calc1()" id="KV-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Kinematic-req" onchange="calc1()" id="Kinematic-req">
+                        <option value="0.00000002777777777777780">cm&#178; h&#8315;&#185;</option>
+                        <option value="0.00000017921146953405">in&#178; h&#8315;&#185;</option>
+                        <option value="0.00000166666666666667">cm&#178; min&#8315;&#185;</option>
+                        <option value="0.000010752688172043"><span>in&#178; min&#8315;&#185;</option>
+                        <option value="0.0000257731958762887">ft&#178; h&#8315;&#185;</option>
+                        <option value="0.0001">St</option>
+                        <option value="0.0001">cm&#178; s&#8315;&#185;</option>
+                        <option value="0.000277777777777778">m&#178; h&#8315;&#185;</option>
+                        <option value="0.000645161290322581">in&#178; s&#8315;&#185;</option>
+                        <option value="0.00154798761609907"><span>ft&#178; min&#8315;&#185;</option>
+                        <option value="0.0166666666666667">m&#178; min&#8315;&#185;</option>
+                        <option value="0.0925925925925926">ft&#178; s&#8315;&#185;</option>
+                        <option value="1" selected>m&#178; s&#8315;&#185;</option>
+                    </select>
+                </td>
+                
+            </tr>
+            
+            <tr id="Charge">
+                <td>Charge</td>
+                
+                <td>
+                    <select name="C-prefix-1" onchange="calc1()" id="C-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Charge-given" onchange="calc1()" id="Charge-given">
+                        <option value="0.0000000000000000001602176634">F</option>
+                        <option value="0.000000000333564">statC</option>
+                        <option value="1"selected>C</option>
+                        <option value="3600">A h</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Charge-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Charge-p">
+                </td>
+                
+                <td>
+                    <select name="C-prefix-2" onchange="calc1()" id="C-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Charge-req" onchange="calc1()" id="Charge-req">
+                        <option value="0.0000000000000000001602176634">F</option>
+                        <option value="0.000000000333564">statC</option>
+                        <option value="1"selected>C</option>
+                        <option value="3600">A h</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Current">
+                <td>Current</td>
+                
+                <td>
+                    <select name="Cu-prefix-1" onchange="calc1()" id="Cu-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Current-given" onchange="calc1()" id="Current-given">
+                        <option value="1"selected>A</option>
+                        <option value="1">C s&#8315;&#185;</option>
+                        <option value="1">V Ω&#8315;&#185;</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Current-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Current-p">
+                </td>
+                
+                <td>
+                    <select name="Cu-prefix-2" onchange="calc1()" id="Cu-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Current-req" onchange="calc1()" id="Current-req">
+                        <option value="1"selected>A</option>
+                        <option value="1">C s&#8315;&#185;</option>
+                        <option value="1">V Ω&#8315;&#185;</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Luminous">
+                <td>Luminous Intensity</td>
+                
+                <td>
+                    <select name="Lu-prefix-1" onchange="calc1()" id="Lu-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Luminous-given" onchange="calc1()" id="Luminous-given">
+                        <option value="0.92">HK</option>
+                        <option value="0.981">cp</option>
+                        <option value="1"selected>cd</option>
+                        <option value="1">lm sr&#8315;&#185;</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Luminous-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Luminous-p">
+                </td>
+                
+                <td>
+                    <select name="Lu-prefix-2" onchange="calc1()" id="Lu-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Luminous-req" onchange="calc1()" id="Luminous-req">
+                        <option value="0.92">HK</option>
+                        <option value="0.981">cp</option>
+                        <option value="1"selected>cd</option>
+                        <option value="1">lm sr&#8315;&#185;</option>
+                    </select>
+                </td>
+                
+            </tr>
+
+            <tr id="Amount">
+                <td class="bottomleft">Amount of Substance</td>
+                
+                <td>
+                    <select name="AOS-prefix-1" onchange="calc1()" id="AOS-prefix-1">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Amount-given" onchange="calc1()" id="Amount-given">
+                        <option value="0.00000000000000000000000166053886312701">particles</option>
+                        <option value="1"selected>mol</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Amount-p" onchange="calc1()" onkeyup="calc1()"
+                        id="Amount-p">
+                </td>
+                
+                <td>
+                    <select name="AOS-prefix-2" onchange="calc1()" id="AOS-prefix-2">
+                        <option value="-24"><span>y</span></option>
+                        <option value="-21"><span>z</span></option>
+                        <option value="-18"><span>a</span></option>
+                        <option value="-15"><span>f</span></option>
+                        <option value="-12"><span>p</span></option>
+                        <option value="-9"><span>n</span></option>
+                        <option value="-6"><span>μ</span></option>
+                        <option value="-3"><span>m</span></option>
+                        <option value="-2"><span>c</span></option>
+                        <option value="-1"><span>d</span></option>
+                        <option value="0" selected><span>None</span></option>
+                        <option value="1"><span>Da</span></option>
+                        <option value="2"><span>h</span></option>
+                        <option value="3"><span>k</span></option>
+                        <option value="6"><span>M</span></option>
+                        <option value="9"><span>G</span></option>
+                        <option value="12"><span>T</span></option>
+                        <option value="15"><span>P</span></option>
+                        <option value="18"><span>E</span></option>
+                        <option value="21"><span>Z</span></option>
+                        <option value="24"><span>Y</span></option>
+                    </select>
+                </td>
+                <td class="bottomright">
+                    <select name="Amount-req" onchange="calc1()" id="Amount-req">
+                        <option value="0.00000000000000000000000166053886312701">particles</option>
+                        <option value="1"selected>mol</option>
+                    </select>
+                </td>
+                
+            </tr>
+    </table>
+
+        </div> 
+        <!-- <div class="title2">
+            <h2 style="margin-top: 50px;">Base Dimensions Calculator</h2>
+        </div> 
+
+
+
+        <div class="table2">
+            <table>
+                <tr id="heading-names">
+                    <th class="topleft">Quantity</th>
+                    <th class="topright">Power</th>
+                </tr>
+                <tr>
+                    <td>Mass</td>
+                    <td>
+                        <input type="number" name="mass1" id="mass1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>
+                        <input type="number" name="time1" id="time1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>
+                        <input type="number" name="length1" id="length1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Temperature</td>
+                    <td>
+                        <input type="number" name="temperature1" id="temperature1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Energy</td>
+                    <td>
+                        <input type="number" name="energy1" id="energy1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td>
+                        <input type="number" name="power1" id="power1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Force</td>
+                    <td>
+                        <input type="number" name="force1" id="force1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pressure</td>
+                    <td>
+                        <input type="number" name="pressure1" id="pressure1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Torque Moment</td>
+                    <td>
+                        <input type="number" name="torque1" id="torque1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>
+                        <input type="number" name="Density1" id="Density1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Area</td>
+                    <td>
+                        <input type="number" name="area1" id="area1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Volume</td>
+                    <td>
+                        <input type="number" name="volume1" id="volume1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Velocity</td>
+                    <td>
+                        <input type="number" name="velocity1" id="velocity1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Acceleration</td>
+                    <td>
+                        <input type="number" name="acceleration1" id="acceleration1" onchange="calc2()"
+                            onkeyup="calc2()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Dynamic Viscocity</td>
+                    <td>
+                        <input type="number" name="Dynamic1" id="Dynamic1" onchange="calc2()" onkeyup="calc2()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bottomleft">Kinematic Viscocity</td>
+                    <td class="bottomright">
+                        <input type="number" name="Kinematic1" id="Kinematic1" onchange="calc2()"
+                            onkeyup="calc2()">
+                    </td>
+                </tr>
+
+            </table>
+        </div> 
+        <div class="table3">
+            <table>
+                <tr id="heading-names">
+                    <th colspan="2" class="top">Base Units (Output)</th>
+                </tr>
+                <tr>
+                    <td>Mass</td>
+                    <td>
+                        <input type="number" name="mass2" id="mass2" onchange="calc2()" readonly onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>
+                        <input type="number" name="time2" id="time2" onchange="calc2()" readonly onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>
+                        <input type="number" name="length2" id="length2" onchange="calc2()" readonly onkeyup="calc2()">
+                    </td>
+                </tr>
+                <tr>
+
+                    <td class="bottomleft">Temperature</td>
+                    <td class="bottomright">
+                        <input type="number" name="temperature2" id="temperature2" onchange="calc2()" readonly
+                            onkeyup="calc2()">
+                    </td>
+                </tr>
+                
+            </table>
+        </div> 
+        <div class="savebuttons">
+            <table>
+                <tr id="heading-names">
+                    <th class="top">Save Output As</th>
+                </tr>
+                <tr>
+                    <td  id="btnsave">
+                        <input type="button" value="Case 1"  onclick="calc4()">
+                        <input type="button" value="Case 2"  onclick="calc5()">
+                    </td>
+                </tr>
+            </table>
+        </div> 
+        <div class="title3">
+            <h2 style="margin-top: 30.5px;">Dimensional Homogeneity Checker</h2>
+        </div> 
+
+
+
+
+        <div class="table4">
+            <table>
+                <tr id="heading-names">
+                    <th colspan="2" class="top">
+                        Case 1
+                    </th>
+                </tr>
+                <tr>
+                    <td>Mass</td>
+                    <td>
+                        <input type="number" name="mass3" id="mass3" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>
+                        <input type="number" name="time3" id="time3" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>
+                        <input type="number" name="length3" id="length3" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bottomleft">Temperature</td>
+                    <td class="bottomright">
+                        <input type="number" name="temperature3" id="temperature3" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+                </tr>
+            </table>
+        </div> 
+        <div class="table5">
+            <table>
+                <tr id="heading-names">
+
+                    <th colspan="2" class="top">
+                        Case 2
+                    </th>
+                </tr>
+                
+            <tr>
+                <td>Mass</td>
+                    <td>
+                        <input type="number" name="mass4" id="mass4" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+            </tr>
+                <td>time</td>
+                <td>
+                    <input type="number" name="time4" id="time4" onchange="calc3()" onkeyup="calc3()">
+                </td>   
+            <tr>
+                <td>Length</td>
+                <td>
+                    <input type="number" name="length4" id="length4" onchange="calc3()" onkeyup="calc3()">
+                </td>
+            </tr>
+            <tr>
+                <td class="bottomleft">Temperature</td>
+                    <td class="bottomright">
+                        <input type="number" name="temperature4" id="temperature4" onchange="calc3()" onkeyup="calc3()">
+                    </td>
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                
+            </tr>
+            </table>
+        </div> 
+        <div class="equivalence">
+                
+               <p6>Are they equivalent? <span id="result3" style="font-weight: bold;">YES</span></p6>
+
+        </div> 
+        <div class="dimensionalexplain">
+            <h2 style="margin-top: 0px;">What is Dimensional Analysis?</h2>
+            <section>
+                <p>
+                    Any physically meaningful equation, or inequality, must have the same dimensions on its left and right sides, a property known as dimensional homogeneity. Checking for dimensional homogeneity is a common application of dimensional analysis, serving as a plausibility check on derived equations and computations. It also serves as a guide and constraint in deriving equations that may describe a physical system in the absence of a more rigorous derivation.
+                </p>
+            </section>
+        </div>
+        <div class="abouttext">          
+            <h2>How to Manually do a Multidimensional Unit Conversion: </h2>
+           <section>
+               <p>
+                aδ = bφ, cω = dτ: The startpoint for a unit conversion is
+                an already known relation where δ,φ and ω,τ are units for a quanitiy and a,b and c,d are their magnitudes. Here we have two becasue we are converting a multidimensional unit. Treat prefixes in the same way as units. 
+               </p>
+                <p>
+                    x = b/a, y = d/c: A conversion factor x,y is defined as the ratio between the magnitudes of units δ,φ and ω,τ which is a constant.
+                </p>
+                <p>
+                    Zδ → (Z∙x) φ, Jω → (J∙y) τ: We can now convert any magnitude Z,J from units δ to φ, ω to τ by using x,y.
+                </p>
+                <p>
+                    E δ<sup>n</sup>ω<sup>m</sup>→ H φ<sup>n</sup>τ<sup>m</sup>: We are tasked with converting from the multidimensional unit: δ<sup>n</sup>ω<sup>m</sup> to φ<sup>n</sup>τ<sup>m</sup> where n,m denotes the power for each unit.
+                </p>
+                <p>
+                    f = x<sup>n</sup>y<sup>m</sup>: A conversion factor f is defined by compiling the individual unit conversion factors and raising each to the power of the unit. 
+                </p>
+                <p>
+                    E δ<sup>n</sup>ω<sup>m</sup> → (E∙f) φ<sup>n</sup>τ<sup>m</sup>: We can now convert any magnitude E from units δ<sup>n</sup>ω<sup>m</sup> to  φ<sup>n</sup>τ<sup>m</sup> by using f.
+                </p>
+            <section>
+            <h2> Summary of the Algebra of Physical Quantities:</h2>
+            <section>
+                <p>
+                    G<sub>1</sub>β<sup>a<sub>1</sub></sup>∙G<sub>2</sub>β<sup>a<sub>2</sub></sup>∙G<sub>3</sub>Γ<sup>b<sub>1</sub></sup>∙G<sub>4</sub>Γ<sup>b<sub>2</sub></sup> = (∏G<sub>i</sub>)β<sup>∑a<sub>i</sub></sup>∙Γ<sup>∑b<sub>i</sub></sup>: The multiplication of quantities with magnitudes G<sub>i</sub> units β,Γ and exponents a<sub>i</sub>,b<sub>i</sub> results in the product of their magnitudes and the product of their units (resulting in the summation of exponents). Prefixes are treated in the same way as units. 
+                                </p>
+               <p>
+                G<sub>1</sub>β + G<sub>2</sub>β = (∑G<sub>i</sub>)β: The adition of identical quantities results in the summation of their magnitude.
+               </p>
+                <p>
+                    G<sub>1</sub>β + G<sub>2</sub>Γ ≠ f(β,Γ): The adition of different quantities does not result in a new quantity.
+                </p> 
+                 </section>
+            <h2>Definitions</h2>
+            <section>
+                <P><b>Quantity:</b> Things that have dimensions (which are an expression of their fundamental nature)
+                    and units (which are chosen to express magnitude or size).</P> 
+                <P><b>Dimensions of a physical quanity:</b> All physical quantities can be expressed in terms of the seven fundamental (base) quantities: mass, length, time, temperature, electric current, luminous intensity and amount of substance. Most practical applications of dimensional analysis involve only: mass, length, time and temperature. </P> 
+                <P><b>Unit of measurement:</b> A defined magnitude of a quantity, adopted by convention or by law, that is used as a standard for measurement of the same kind of quantity.</P> 
+            </section>
+                
+        </div> 
+        <div class="table6">
+            <table>
+                <tr id="heading-names">
+                    <th class="topleft">Quantity</th>
+                    <th width="100px">SI units</th>
+                    <th>Definition of Unit</th>
+                    <th class="topright">Definition of Quantity</th>
+                </tr>
+                <tr>
+                    <td>Mass</td>
+                    <td>kg</td>
+                    <td>Defined by setting the Planck constant h to exactly 6.62607015×10<sup>−34</sup> J⋅s (J = kg m<sup>2</sup> s<sup>−2</sup>), given the definitions of the metre and the second.</td>
+                    <td>Mass is both a property of a physical body and a measure of its resistance to acceleration (a change in its state of motion) when a net force is applied. An object's mass also determines the strength of its gravitational attraction to other bodies.</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>s</td>
+                    <td>≡ The duration of 9192631770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium-133 atom.</td>
+                    <td>Time is the indefinite continued progress of existence and events that occur in an apparently irreversible succession from the past, through the present, into the future</td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>m</td>
+                    <td>≡ Distance light travels in ​1/299792458 of a second in a vacuum.</td>
+                    <td>The measurement or extent of something from end to end; the greater of two or the greatest of three dimensions of an object.</td>
+                </tr>
+                <tr>
+                    <td>Temperature</td>
+                    <td>K</td>
+                    <td>By setting the fixed numerical value of the Boltzmann constant k to 1.380649×10<sup>-23</sup> J K<sup>-1</sup>, (J = kg m<sup>2</sup> s<sup>-2</sup>), given the definition of the kilogram, the metre, and the second. ≡ ​1/273.16 of the thermodynamic temperature of the triple point of water. </td>
+                    <td>A physical quantity that expresses hot and cold. It is the manifestation of thermal energy, present in all matter, which is the source of the occurrence of heat, a flow of energy, when a body is in contact with another that is colder.</td>
+                </tr>
+                <tr>
+                    <td>Energy</td>
+                    <td>J</td>
+                    <td>≡ The energy transferred to an object by the work of moving it a distance of 1 metre against a force of 1 newton.</td>
+                    <td>The capacity of a physical system to do work.</td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td>W</td>
+                    <td>≡ The power which in one second of time gives rise to one joule of energy.</td>
+                    <td>Time rate of doing work or delivering energy.</td>
+                </tr>
+                <tr>
+                    <td>Force</td>
+                    <td>N</td>
+                    <td>≡ The amount of force needed to accelerate 1 kilogram of mass at the rate of 1 metre per second squared.</td>
+                    <td>Any action that tends to maintain or alter the motion of a body or to distort it. The concept of force is commonly explained in terms of Isaac Newton’s three laws of motion.</td>
+                </tr>
+                <tr>
+                    <td>Pressure</td>
+                    <td>pa</td>
+                    <td>≡ One newton per square metre.</td>
+                    <td>Pressure, is the perpendicular force per unit area at a point within a confined fluid.</td>
+                </tr>
+                
+                <tr>
+                    <td>Torque Moment</td>
+                    <td>N m</td>
+                    <td>≡ The torque resulting from a force of one newton applied perpendicularly to the end of a moment arm that is one metre long.</td>
+                    <td>The magnitude of the component of the force vector lying in the plane perpendicular to the axis, multiplied by the shortest distance between the axis and the direction of the force component.</td>
+                </tr>
+                <tr>
+                    <td>Area</td>
+                    <td>square metre</td>
+                    <td>≡ The area of a sqare with edges one metre in length. If you say metres squared you mean that this is the length of one side and you need to square this value to get the area. 2 metres squared = 4 squared metres ((2m)<sup>2</sup>=4m<sup>2</sup>). 4 squared metres = 4 × 1 square metre (4×1m<sup>2</sup>=4m<sup>2</sup>).</td>
+                    <td>The size of a closed region in a plane.</td>
+                </tr>
+                <tr>
+                    <td>Volume</td>
+                    <td>cubic metre</td>
+                    <td>≡ The volume of a cube with edges one metre in length.  If you say metres cubed you mean that this is the length of one side and you need to cube this value to get the volume.</td>
+                    <td>The amount of space that a substance or object occupies, or that is enclosed within a container.</td>
+                </tr>
+                <tr>
+                    <td>Velocity</td>
+                    <td>m s<sup>-1</sup></td>
+                    <td>≡ The speed of a body covering a distance of one metre in a time of one second.</td>
+                    <td>The magnitude of the velocity (i.e., the speed) is the time rate at which the point is moving along its path.</td>
+                </tr>
+                <tr>
+                    <td>Acceleration</td>
+                    <td>m s<sup>-2</sup></td>
+                    <td>≡ It's velocity increases by 1 ms<sup>-1</sup> every second. </td>
+                    <td>Rate at which velocity changes with time, in terms of both speed and direction.</td>
+                </tr>
+                <tr>
+                    <td>Dynamic Viscosity</td>
+                    <td>kg m<sup>-1</sup> s<sup>-1</sup></td>
+                    <td>≡ the viscosity of water at 20 °C (NTP) is almost exactly 1 centipoise = 0.01 kg m<sup>-1</sup> s<sup>-1</sup></td>
+                    <td>Dynamic viscosity is the shear stress divided by the rate of shear strain for a fluid at a fixed temperature. It may be thought of as the internal friction between the molecules. </td>
+                </tr>
+                <tr>
+                    <td>Kinematic Viscosity</td>
+                    <td>m<sup>2</sup> s<sup>-1</sup></td>
+                    <td>≡ one poise divided by the density of the fluid in kg m<sup>-3</sup></td>
+                    <td>Kinematic viscosity is the dynamic viscosity (absolute viscosity) of a fluid divided by its mass density. (Mass density is the mass of a substance divided by its volume) </td>
+                </tr>
+                
+                <tr>
+                    <td>Charge</td>
+                    <td>C</td>
+                    <td>≡ It is approximately equivalent to 6.2415090744×10<sup>18</sup> electrons.</td>
+                    <td>The quantity of electricity transported in one second by a current of one ampere.</td>
+                </tr>
+                <tr>
+                    <td>Current</td>
+                    <td>A</td>
+                    <td>≡ The flow of exactly 1/1.602176634×10<sup>−19</sup> times the elementary charge e per second. Equalling approximately 6.2415090744×10<sup>18</sup> elementary charges per second.</td>
+                    <td>The net rate of flow of electric charge through a surface or into a control volume. </td>
+                </tr>
+                <tr>
+                    <td>Luminous intensity</td>
+                    <td>cd</td>
+                    <td>≡ Lumen per steradian, where 1 lumen is the luminus flux of monochromatic radiation of frequency 5.4 × 10<sup>14</sup> Hz (green light) with luminous efficacy of 683 lm W<sup>-1</sup>, and steradian the SI unit of solid angle.</td>
+                    <td>A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle, based on the luminosity function, a standardized model of the sensitivity of the human eye.</td>
+                </tr>
+                <tr>
+                    <td class="bottomleft">Amount of substance</td>
+                    <td>mol</td>
+                    <td>≡ 6.02214076×10<sup>23</sup>particles.</td>
+                    <td class="bottomright">A measure of the number of entities (atoms, molecules, ions, electrons, etc) present in a substance. </td>
+                </tr>
+            </table>
+        </div>    -->
+        
+        <script src="./script.js"></script>
+       
+</body>
+
