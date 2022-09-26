@@ -78,7 +78,7 @@ table input[type=number]{
     }
     .head{
         flex-direction: column;
-        margin: 10px auto;
+        justify-content: center;
     }
 }
 
@@ -87,7 +87,7 @@ table input[type=number]{
 .head{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin: 10px auto; 
 }
 
@@ -113,6 +113,7 @@ table input[type=number]{
     padding: 10px;
     font-size: 18px;
     font-family: 'Mulish', sans-serif;
+    background-color: white;
 }
 .box input:focus{
     outline: none;
@@ -133,9 +134,8 @@ table input[type=number]{
     }
     .box{
         margin-bottom: 8px;
-    }
-   
-}
+}}
+
 /* This code is for text formating*/
 
 /* This code is for the save button*/
